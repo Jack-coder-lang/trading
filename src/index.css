@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.35);
+    color: #f5f5f5;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(42, 42, 42, 0.6);
+  }
+
+  .glass-strong {
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(58, 58, 58, 0.5);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.1);
+  }
+
+  .glow-violet-sm {
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.25);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #7c3aed, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #14b8a6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(#111111, #111111) padding-box,
+                linear-gradient(135deg, #7c3aed, #6366f1) border-box;
+  }
+
+  .bullish { @apply text-accent-teal; }
+  .bearish { @apply text-accent-red; }
+
+  .module-card {
+    @apply glass rounded-xl p-5 transition-all duration-200 cursor-pointer;
+  }
+
+  .module-card:hover {
+    @apply bg-bg-hover;
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.15);
+  }
+
+  .btn-primary {
+    @apply bg-accent-violet hover:bg-violet-600 text-white font-medium px-5 py-2.5 rounded-lg transition-all duration-200;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply bg-bg-secondary hover:bg-bg-hover text-text-primary font-medium px-5 py-2.5 rounded-lg transition-all duration-200;
+    border: 1px solid #2a2a2a;
+  }
+
+  .btn-secondary:hover {
+    border-color: #3a3a3a;
+  }
+
+  .prose-trading {
+    @apply text-text-secondary leading-relaxed;
+  }
+
+  .prose-trading h2 {
+    @apply text-text-primary font-semibold text-xl mt-8 mb-4;
+  }
+
+  .prose-trading h3 {
+    @apply text-text-primary font-medium text-lg mt-6 mb-3;
+  }
+
+  .prose-trading p {
+    @apply mb-4;
+  }
+
+  .prose-trading ul {
+    @apply list-none space-y-2 mb-4;
+  }
+
+  .prose-trading ul li {
+    @apply pl-5 relative;
+  }
+
+  .prose-trading ul li::before {
+    content: '▸';
+    @apply absolute left-0 text-accent-violet;
+  }
+
+  .prose-trading strong {
+    @apply text-text-primary font-semibold;
+  }
+
+  .info-box {
+    @apply rounded-lg p-4 mb-4;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+  }
+
+  .info-box.teal {
+    background: rgba(20, 184, 166, 0.08);
+    border-color: rgba(20, 184, 166, 0.2);
+  }
+
+  .info-box.red {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+  }
+
+  .info-box.yellow {
+    background: rgba(234, 179, 8, 0.08);
+    border-color: rgba(234, 179, 8, 0.2);
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-mono;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
